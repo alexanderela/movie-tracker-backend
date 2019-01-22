@@ -134,7 +134,6 @@ PUT/api/v1/stations/:station_id
 
 DELETE /api/v1/stations/:station_id
 --> returns a response body with an id and a message
-```
 
 ```
 ##### SAMPLE `GET` REQUEST
