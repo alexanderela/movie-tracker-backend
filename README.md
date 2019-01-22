@@ -118,29 +118,29 @@ git push origin branch-name-here
 * Keep your PR small, with a single focus
 
 ### API Endpoints
-#### Charging Stations
+#### Users
 ```
-GET /api/v1/stations
---> returns a response body with an array of all station objects
+POST/api/v1/users
+--> returns a response body with an entire user (id, name, password, and email)
 
-GET /api/v1/stations/:station_id
---> returns a response body with an array of one station object
+POST/api/v1/users/new
+--> returns a response body with an id
 
-POST/api/v1/stations
---> returns a response body with an id and a message
+POST/api/v1/users/favorites/new
+--> returns a response body with an id
 
-PUT/api/v1/stations/:station_id
---> returns a response body with a message
+GET /api/v1/users/:user_id/favorites
+--> returns a response body with an array of all favorite objects
 
-DELETE /api/v1/stations/:station_id
+DELETE /api/v1/users/:user_id/favorites/:movie_id
 --> returns a response body with an id and a message
 
 ```
 ##### SAMPLE `GET` REQUEST
 ```
-For station with id of 1, and cafe with id of 2
+For user with id of 1
 
-https://recharge-api.herokuapp.com/api/v1/stations/1/cafes/2
+https://movie-tracker-backend-ae.herokuapp.com/api/v1/users/1/favorites
 
 Expected response:
 
