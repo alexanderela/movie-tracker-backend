@@ -1,7 +1,7 @@
 # Movie Tracker API
 
 ## Welcome to the Movie Tracker API!
-This API is used in the **Movie Tracker** application which can be found here: [Movie Tracker Frontend](https://github.com/alexanderela/movie-tracker)
+This API is used in the **Movie Tracker** application which you can see by clicking this link: [Movie Tracker Frontend](https://github.com/alexanderela/movie-tracker)
 
 ## How to Use
 Query the Movie Tracker API on Heroku: INSERT LINK HERE.
