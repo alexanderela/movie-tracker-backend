@@ -10,6 +10,11 @@ exports.seed = function(knex, Promise) {
           email: 'alex@turing.com',
           password:'password'
         },
+        {
+          name: 'David Bowie',
+          email: 'davie@bowie.com',
+          password:'password'
+        },
       ]);
     })
     // .then(() => console.log('Seeding complete!'))
