@@ -32,10 +32,10 @@ app.get('/api/users', (request, response) => {
 app.post('/api/users', (request, response) => {
 	const user = request.body;
 
-	for(let requiredParameter of ['email', 'password']) {
-		if(!user[requiredParameter]) {
+	for(let requiredParam of ['email', 'password']) {
+		if(!user[requiredParam]) {
 			response.status(422)
-				.send({ error: `Expected format: { email: <String>, password: <String> }. You're missing a "${requiredParameter}" property.`});
+				.send({ error: `Expected format: { email: <String>, password: <String> }. You're missing a "${requiredParam}" property.`});
 		}
 	}
 
@@ -45,7 +45,7 @@ app.post('/api/users', (request, response) => {
 			response.status(201).json(userIds[0])
 		})
 		.catch(error => {
-			response.status(500).json({ error: error.message });
+			response.status(500).json({ error: 'This is a test of the error' });
 		});
 });
 
@@ -72,7 +72,7 @@ app.post('/api/users/favorites/new', (request, response) => {
 
 	for(let requiredParam of ['movie_id', 'user_id', 'title', 'poster_path', 'release_date', 'vote_average', 'overview']) {
 		if(!favorite[requiredParam]) {
-			response.staatus(422).json({ error: `Expected format: { movie_id: <String>, user_id: <String>, title: <String>, poster_path: <String>, release_date: <String>, vote_average: <String>, overview: <String> }. You're missing a "${requiredParameter}" property.`})
+			response.staatus(422).json({ error: `Expected format: { movie_id: <String>, user_id: <String>, title: <String>, poster_path: <String>, release_date: <String>, vote_average: <String>, overview: <String> }. You're missing a "${requiredParam}" property.`})
 		}
 	}
 
