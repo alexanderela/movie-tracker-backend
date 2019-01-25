@@ -26,10 +26,9 @@ app.get('/api/users', (request, response) => {
 app.post('/api/users', (request, response) => {
 	const user = request.body;
 
-	for (let requiredParameter of ['email', 'password']) {
+	for(let requiredParameter of ['email', 'password']) {
 		if(!user[requiredParameter]) {
-			return response
-				.status(422)
+			response.status(422)
 				.send({ error: `Expected format: { email: <String>, password: <String> }. You're missing a "${requiredParameter}" property.`});
 		}
 	}
