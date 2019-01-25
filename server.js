@@ -4,6 +4,8 @@ const environment = process.env.NODE_ENV || 'development';
 const configuration = require('./knexfile')[environment];
 const database = require('knex')(configuration);
 const app = express();
+const cors = require('cors');
+const path = require('path');
 
 app.use(bodyParser.json());
 
