@@ -45,7 +45,7 @@ app.post('/api/users', (request, response) => {
 			response.status(201).json(userIds[0])
 		})
 		.catch(error => {
-			response.status(500).json({ error: 'This is a test of the error' });
+			response.status(500).json({ error: error.message });
 		});
 });
 
