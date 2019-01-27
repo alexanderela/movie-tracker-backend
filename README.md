@@ -162,7 +162,7 @@ Expected response:
   }
 ]
 ```
-##### SAMPLE CAFE QUERY
+##### SAMPLE USER QUERY
 ```
 For specific cafe name, enter the following after path:
 
