@@ -106,10 +106,6 @@ app.delete('/api/users/:id/favorites/:movie_id', (request, response) => {
 		})
 })
 
-
-
-// app.use(express.static(path.join(__dirname, 'build')));
-
 app.listen(app.get('port'), () => {
 	console.log(`${app.locals.title} is running on ${app.get('port')}.`);
 })
