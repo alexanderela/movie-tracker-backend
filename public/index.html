@@ -11,59 +11,128 @@
       <h1 class="main-headline">Welcome to the Movie Tracker(Backend) Documentation!</h1>
     </header>
     <article class="user">
-      <h2 class="user-title">User Endpoints</h2>
+      <h2 class="user-title">Endpoints</h2>
       <section class="user-endpoints">
         <h3 class="endpoint-title">GET Endpoints</h3>
         <p class="instructions">
           To get data for all users, use the URL:
         </p>
-        <p class="url">https://movie-tracker-backend-ae.herokuapp.com/api/users</p>
+        <p class="url">https://movie-tracker-backend-ae.herokuapp.com/api/v1/users</p>
         <p class="instructions">
           in your fetch request, which returns a response body with an array of
           all station objects.
         </p>
         <h4 class="example">Example Response:</h4>
         <pre><code>
-          [
-            {
-              "id": 1,
-              "station_name": "Hyatt Regency - Denver",
-              "station_phone": "303-486-4467",
-              "latitude": "39.74",
-              "longitude": "-104.99",
-              "street_address": "650 15th St",
-              "city": "Denver",
-              "state": "CO",
-              "zip_code": "80202",
-              "created_at": "2018-12-11T01:10:17.799Z",
-              "updated_at": "2018-12-11T01:10:17.799Z",
-              "intersection_directions": "At Colorado Convention Center, level 2",
-              "access_days_time": "24 hours daily; pay lot"
-            },
-            {
-              "id": 2,
-              "station_name": "City of Denver - Colorado Convention Center Garage",
-              "station_phone": "303-228-8071",
-              "latitude": "39.74",
-              "longitude": "-105.00",
-              "street_address": "1104 Champa St",
-              "city": "Denver",
-              "state": "CO",
-              "zip_code": "80202",
-              "created_at": "2018-12-11T01:10:17.807Z",
-              "updated_at": "2018-12-11T01:10:17.807Z",
-              "intersection_directions": "Parking space 1081. Level P-1, half way down the level near the freight elevator",
-              "access_days_time": "24 hours daily"
-          },
-          ...   
-          ]  
+				[
+					{
+					"id": 1,
+					"name": "Alvin",
+					"email": "alvin@chipmunks.com",
+					"password": "password",
+					"created_at": "2019-01-25T06:24:12.876Z",
+					"updated_at": "2019-01-25T06:24:12.876Z"
+					},
+					{
+					"id": 2,
+					"name": "Simon",
+					"email": "Simon@chipmunks.com",
+					"password": "password",
+					"created_at": "2019-01-25T07:00:19.276Z",
+					"updated_at": "2019-01-25T07:00:19.276Z"
+					},
+					{
+					"id": 3,
+					"name": "Theodore",
+					"email": "theodore@chipmunks.com",
+					"password": "password",
+					"created_at": "2019-02-02T02:16:52.943Z",
+					"updated_at": "2019-02-02T02:16:52.943Z"
+					}
+				]  
         </code></pre>
 
         <p class="instructions">
-          To get user data for a specific station, use the URL:
+          To get all favorites for a specific user, use the URL:
         </p>
         <p class="url">
-          https://movie-tracker-backend-ae.herokuapp.com/api/v1/stations/:station_id
+          https://movie-tracker-backend-ae.herokuapp.com/api/v1/users/:id/favorites
+        </p>
+        <p class="instructions">
+          in your fetch request, which returns a response body with an array of
+          all favorite objects matching provided user id.
+        </p>
+        <h4 class="example">Example URL:</h4>
+        <pre><code>
+            https://movie-tracker-backend-ae.herokuapp.com/api/v1/users/1/favorites
+            </code></pre>
+        <h4 class="example">Example Response:</h4>
+        <pre><code>
+				[
+				    {
+				        "id": 12,
+				        "movie_id": 504172,
+				        "user_id": 3,
+				        "title": "The Mule",
+				        "poster_path": "https://image.tmdb.org/t/p/w500//t0idiLMalKMj2pLsvqHrOM4LPdQ.jpg",
+				        "release_date": "12/14/2018",
+				        "vote_average": "6",
+				        "overview": "A 90 year old horticulturalist and Korean War veteran is caught transporting $3 million worth of cocaine through Illinois for a Mexican drug cartel.",
+				        "created_at": "2019-02-09T03:12:34.997Z",
+				        "updated_at": "2019-02-09T03:12:34.997Z"
+				    },
+				    {
+				        "id": 13,
+				        "movie_id": 428078,
+				        "user_id": 3,
+				        "title": "Mortal Engines",
+				        "poster_path": "https://image.tmdb.org/t/p/w500//uXJVpPXxZO4L8Rz3IG1Y8XvZJcg.jpg",
+				        "release_date": "12/05/2018",
+				        "vote_average": "5",
+				        "overview": "Set in a world many thousands of years in the future. Earth’s cities now roam the globe on huge wheels, devouring each other in a struggle for ever diminishing resources. On one of these massive Traction Cities, Tom Natsworthy has an unexpected encounter with a mysterious young woman from the Outlands who will change the course of his life forever.",
+				        "created_at": "2019-02-09T03:13:22.943Z",
+				        "updated_at": "2019-02-09T03:13:22.943Z"
+				    },
+				    {
+				        "id": 14,
+				        "movie_id": 166428,
+				        "user_id": 3,
+				        "title": "How to Train Your Dragon: The Hidden World",
+				        "poster_path": "https://image.tmdb.org/t/p/w500//ij0xoc13hGhrYIlXGGuPXWTh3vi.jpg",
+				        "release_date": "01/03/2019",
+				        "vote_average": "8",
+				        "overview": "As Hiccup fulfills his dream of creating a peaceful dragon utopia, Toothless’ discovery of an untamed, elusive mate draws the Night Fury away.  When danger mounts at home and Hiccup’s reign as village chief is tested, both dragon and rider must make impossible decisions to save their kind.",
+				        "created_at": "2019-02-09T03:13:40.903Z",
+				        "updated_at": "2019-02-09T03:13:40.903Z"
+				    }
+				]
+          </code></pre>
+        <h3 class="endpoint-title">POST Endpoints</h3>
+        <p class="instructions">
+          To add a user to the database, use the URL:
+        </p>
+        <p class="url">https://movie-tracker-backend-ae.herokuapp.com/api/v1/users/new</p>
+        <p class="instructions">
+          in your fetch request, which returns a response body with an id and a
+          message.
+        </p>
+        <h4 class="example">Example Request:</h4>
+        <pre><code>
+            {
+              "name": "Alvin",
+              "email": "alex@chipmunks.com",
+              "password": "password",
+            }
+            </code></pre>
+        <h4 class="example">Example Response:</h4>
+        <pre><code>
+						1
+              </code></pre>
+        <p class="instructions">
+          To get log a user in, use the URL:
+        </p>
+        <p class="url">
+          https://movie-tracker-backend-ae.herokuapp.com/api/v1/users
         </p>
         <p class="instructions">
           in your fetch request, which returns a response body containing an
@@ -73,192 +142,17 @@
         <pre><code>
             https://movie-tracker-backend-ae.herokuapp.com/api/v1/stations/1
               </code></pre>
+       <h4 class="example">Example Request:</h4>
+        <pre><code>
+            {
+              "email": "alex@chipmunks.com",
+              "password": "password"
+            }
+            </code></pre>
         <h4 class="example">Example Response:</h4>
         <pre><code>
-          [
-            {
-              "id": 1,
-              "station_name": "UNICO",
-              "station_phone": "888-758-4389",
-              "latitude": "39.75",
-              "longitude": "-105.00",
-              "street_address": "1501-1599 Lawrence St",
-              "city": "Denver",
-              "state": "CO",
-              "zip_code": "80202",
-              "created_at": "2018-12-11T01:10:17.812Z",
-              "updated_at": "2018-12-11T01:10:17.812Z",
-              "intersection_directions": "WRITER SQUARE 1; Parking level P1 near elevators and cashier",
-              "access_days_time": "24 hours daily"
-            }
-          ]
+  			3
           </code></pre>
-
-        <h3 class="endpoint-title">POST Endpoints</h3>
-        <p class="instructions">
-          To add a user to the database, use the URL:
-        </p>
-        <p class="url">https://movie-tracker-backend-ae.herokuapp.com/api/v1/stations/</p>
-        <p class="instructions">
-          in your fetch request, which returns a response body with an id and a
-          message.
-        </p>
-        <h4 class="example">Example Request:</h4>
-        <pre><code>
-            {
-              "station_name": "Chris' Awesome Station",
-              "station_phone": "555-555-5555",
-              "street_address": "123 17th",
-              "city": "Denver",
-              "state": "CO",
-              "zip_code": 80220,
-              "latitude": 39.75,
-              "longitude": -105,
-              "intersection_directions": "unknown",
-              "access_days_time": "24 hours daily"
-            }
-            </code></pre>
-        <h4 class="example">Example Response:</h4>
-        <pre><code>
-            {
-              "id": 35,
-              "message": "Station \"Chris' awesome station\" successfully created!"
-            }
-              </code></pre>
-      </section>
-    </article>
-
-    <article class="cafe">
-      <h2 class="cafe-title">Cafe Endpoints</h2>
-      <section class="cafe-endpoints">
-        <h3 class="endpoint-title">GET Endpoints</h3>
-        <p class="instructions">To get a specific cafe by name, use the URL:</p>
-        <p class="url">
-          https://movie-tracker-backend-ae.herokuapp.com/api/v1/cafes?cafe_name=CAFE+NAME+HERE
-        </p>
-        <p class="instructions">
-          in your fetch request, which returns a response body with an array of
-          matching cafe objects.
-        </p>
-        <h4 class="example">Example URL:</h4>
-        <pre><code>
-            https://movie-tracker-backend-ae.herokuapp.com/api/v1/cafes?cafe_name=Perks+Coffee
-            </code></pre>
-        <h4 class="example">Example Response:</h4>
-        <pre><code>
-          [
-            {
-              "id": 1,
-              "cafe_name": "Perks Coffee",
-              "street_address": "650 15th St",
-              "city": "Denver",
-              "state": "CO",
-              "zip_code": null,
-              "cross_street": null,
-              "formatted_address": "650 15th St, Denver, CO, United States",
-              "distance_in_meters": 32,
-              "station_id": 1,
-              "created_at": "2018-12-11T01:10:17.833Z",
-              "updated_at": "2018-12-11T01:10:17.833Z"
-            }
-          ]
-          </code></pre>
-
-        <p class="instructions">
-          To get data for a specific cafe, use the URL:
-        </p>
-        <p class="url">
-          https://movie-tracker-backend-ae.herokuapp.com/api/v1/stations/:station_id/cafes
-        </p>
-        <p class="instructions">
-          in your fetch request, which returns a response body with an array of
-          all cafe objects matching provided station id.
-        </p>
-        <h4 class="example">Example URL:</h4>
-        <pre><code>
-            https://movie-tracker-backend-ae.herokuapp.com/api/v1/stations/1/cafes
-            </code></pre>
-        <h4 class="example">Example Response:</h4>
-        <pre><code>
-          [
-            {
-              "id": 1,
-              "cafe_name": "Perks Coffee",
-              "street_address": "650 15th St",
-              "city": "Denver",
-              "state": "CO",
-              "zip_code": null,
-              "cross_street": null,
-              "formatted_address": "650 15th St, Denver, CO, United States",
-              "distance_in_meters": 32,
-              "station_id": 1,
-              "created_at": "2018-12-11T01:10:17.833Z",
-              "updated_at": "2018-12-11T01:10:17.833Z"
-            },
-            {
-              "id": 2,
-              "cafe_name": "Peet's Coffee & Tea",
-              "street_address": "1550 Court Pl",
-              "city": "Denver",
-              "state": "CO",
-              "zip_code": "80202",
-              "cross_street": "Sheraton Denver Downtown",
-              "formatted_address": "1550 Court Pl (Sheraton Denver Downtown), Denver, CO 80202, United States",
-              "distance_in_meters": 368,
-              "station_id": 1,
-              "created_at": "2018-12-11T01:10:17.835Z",
-              "updated_at": "2018-12-11T01:10:17.835Z"
-            },
-            {
-              "id": 3,
-              "cafe_name": "Ink! Coffee",
-              "street_address": "618 16th St",
-              "city": "Denver",
-              "state": "CO",
-              "zip_code": "80202",
-              "cross_street": "btwn California & Welton",
-              "formatted_address": "618 16th St (btwn California & Welton), Denver, CO 80202, United States",
-              "distance_in_meters": 167,
-              "station_id": 1,
-              "created_at": "2018-12-11T01:10:17.834Z",
-              "updated_at": "2018-12-11T01:10:17.834Z"
-            }
-          ]
-          </code></pre>
-
-        <p class="instructions">To get a specific cafe by id, use the URL:</p>
-        <p class="url">
-          https://movie-tracker-backend-ae.herokuapp.com/api/v1/stations/:station_id/cafes/:cafe_id
-        </p>
-        <p class="instructions">
-          in your fetch request, which returns a response body with an array
-          containing the matching cafe object.
-        </p>
-        <h4 class="example">Example URL:</h4>
-        <pre><code>
-            https://movie-tracker-backend-ae.herokuapp.com/api/v1/stations/1/cafes/2
-              </code></pre>
-        <h4 class="example">Example Response:</h4>
-        <pre><code>
-            [
-              {
-                "id": 2,
-                "cafe_name": "Peet's Coffee & Tea",
-                "street_address": "1550 Court Pl",
-                "city": "Denver",
-                "state": "CO",
-                "zip_code": "80202",
-                "cross_street": "Sheraton Denver Downtown",
-                "formatted_address": "1550 Court Pl (Sheraton Denver Downtown), Denver, CO 80202, United States",
-                "distance_in_meters": 368,
-                "station_id": 1,
-                "created_at": "2018-12-11T01:10:17.835Z",
-                "updated_at": "2018-12-11T01:10:17.835Z"
-              }
-            ]
-            </code></pre>
-
-        <h3 class="endpoint-title">POST Endpoints</h3>
         <p class="instructions">To add a favorite to the database, use the URL:</p>
         <p class="url">
           https://movie-tracker-backend-ae.herokuapp.com/api/v1/users/favorites/new
@@ -284,10 +178,7 @@
               </code></pre>
         <h4 class="example">Example Response:</h4>
         <pre><code>
-            {
-              "id": 103,
-              "message": "Cafe "Chris' awesome cafe" successfully created!"
-            }
+            3
                 </code></pre>
 
         <h3 class="endpoint-title">DELETE Endpoints</h3>

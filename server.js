@@ -73,13 +73,13 @@ app.post('/api/v1/users/favorites/new', (request, response) => {
 
 	for(let requiredParam of ['movie_id', 'user_id', 'title', 'poster_path', 'release_date', 'vote_average', 'overview']) {
 		if(!favorite[requiredParam]) {
-			response.status(422).json({ error: `Expected format: { movie_id: <String>, user_id: <String>, title: <String>, poster_path: <String>, release_date: <String>, vote_average: <String>, overview: <String> }. You're missing a "${requiredParam}" property.`})
+			response.status(422).json({ error: `Expected format: { movie_id: <Integer>, user_id: <Integer>, title: <String>, poster_path: <String>, release_date: <String>, vote_average: <Float>, overview: <String> }. You're missing a "${requiredParam}" property.`})
 		}
 	}
 
 	database('favorites').insert(favorite, 'id')
 		.then(favorite => {
-			response.status(201).json(favorite)
+			response.status(201).json(favorite.movie_id)
 		})
 		.catch(error => {
 			response.status(500).json({ error: message })
