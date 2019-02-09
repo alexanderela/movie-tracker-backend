@@ -21,7 +21,7 @@ app.set('port', process.env.PORT || 3000);
 
 app.locals.title = 'users';
 
-app.get('/api/users', (request, response) => {
+app.get('/api/v1/users', (request, response) => {
 	database('users').select()
 		.then((user) => {
 			response.status(200).json(user);
@@ -31,7 +31,7 @@ app.get('/api/users', (request, response) => {
 		});
 });
 
-app.post('/api/users', (request, response) => {
+app.post('/api/v1/users', (request, response) => {
 	const user = request.body;
 
 	for(let requiredParam of ['email', 'password']) {
@@ -50,7 +50,7 @@ app.post('/api/users', (request, response) => {
 		});
 });
 
-app.post('/api/users/new', (request, response) => {
+app.post('/api/v1/users/new', (request, response) => {
 	const user = request.body
 
 	for(let requiredParam of ['name', 'email', 'password']) {
@@ -68,7 +68,7 @@ app.post('/api/users/new', (request, response) => {
 		})
 });
 
-app.post('/api/users/favorites/new', (request, response) => {
+app.post('/api/v1/users/favorites/new', (request, response) => {
 	const favorite = request.body
 
 	for(let requiredParam of ['movie_id', 'user_id', 'title', 'poster_path', 'release_date', 'vote_average', 'overview']) {
@@ -86,7 +86,7 @@ app.post('/api/users/favorites/new', (request, response) => {
 		})
 })
 
-app.get('/api/users/:id/favorites', (request, response) => {
+app.get('/api/v1/users/:id/favorites', (request, response) => {
 	const { id } = request.params
 
 	database('favorites').where('user_id', id)
@@ -95,7 +95,7 @@ app.get('/api/users/:id/favorites', (request, response) => {
 		.catch(error => response.status(500).json(`Error fetching favorite: ${error.message}`))
 })
 
-app.delete('/api/users/:id/favorites/:movie_id', (request, response) => {
+app.delete('/api/v1/users/:id/favorites/:movie_id', (request, response) => {
 	const { id, movie_id } = request.params
 
 	database('favorites').where('movie_id', movie_id).del()
