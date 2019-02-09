@@ -14,9 +14,11 @@ app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-app.use(bodyParser.json());
 
+app.use(bodyParser.json());
+app.use(express.static(__dirname + '/public'));
 app.set('port', process.env.PORT || 3000);
+
 app.locals.title = 'users';
 
 app.get('/api/users', (request, response) => {
