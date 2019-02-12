@@ -169,7 +169,7 @@ Expected response:
 ```
 ##### SAMPLE USER QUERY
 ```
-For specific cafe name, enter the following after path:
+For specific user name, enter the following after path:
 
 app.get('/api/v1/cafes?cafe_name=CAFE+NAME+HERE' or CAFE%20NAME%20COFFEE) where spaces are separated by + (plus) characters OR %20
 
